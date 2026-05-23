@@ -3,12 +3,12 @@ import { motion } from 'framer-motion'
 import { pageVariants } from '@/animations/variants'
 import PageWrapper from '@/components/layout/PageWrapper'
 import { siteMetadata } from '@/data/meta'
-import HeroSection from '@/sections/hero/HeroSection'
-import AboutSection from '@/sections/about/AboutSection'
-import SkillsSection from '@/sections/skills/SkillsSection'
-import ProjectsSection from '@/sections/projects/ProjectsSection'
-import ExperienceSection from '@/sections/experience/ExperienceSection'
-import ContactSection from '@/sections/contact/ContactSection'
+import HeroSection from '@/sections/Hero/HeroSection'
+import AboutSection from '@/sections/About/AboutSection'
+import SkillsSection from '@/sections/Skills/SkillsSection'
+import ProjectsSection from '@/sections/Projects/ProjectsSection'
+import ExperienceSection from '@/sections/Experience/ExperienceSection'
+import ContactSection from '@/sections/Contact/ContactSection'
 
 const Home = () => {
   return (
