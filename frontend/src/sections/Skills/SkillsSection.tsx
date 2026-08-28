@@ -13,10 +13,10 @@ interface SkillBarProps {
 }
 
 const LEVEL_MAP = [
-  { min: 90, label: 'Expert',     color: 'var(--cyan)'    },
-  { min: 80, label: 'Advanced',   color: 'var(--emerald)' },
-  { min: 70, label: 'Proficient', color: 'var(--violet)'  },
-  { min: 0,  label: 'Competent',  color: 'var(--amber)'   },
+  { min: 90, label: 'Expert',     color: 'var(--orange)'    },
+  { min: 80, label: 'Advanced',   color: 'var(--text-strong)' },
+  { min: 70, label: 'Proficient', color: 'var(--text)'  },
+  { min: 0,  label: 'Competent',  color: 'var(--muted)'   },
 ]
 
 const getLevel = (n: number) => LEVEL_MAP.find(({ min }) => n >= min)!
@@ -59,9 +59,9 @@ const SkillBar = ({ name, level, index }: SkillBarProps) => {
 }
 
 const CATEGORIES: Record<string, { icon: string; accent: string }> = {
-  'Frontend':       { icon: '</>', accent: 'var(--cyan)'    },
-  'Backend':        { icon: '⚙',  accent: 'var(--emerald)' },
-  'Tools & DevOps': { icon: '🛠',  accent: 'var(--violet)'  },
+  'Frontend':       { icon: '</>', accent: 'var(--orange)' },
+  'Backend':        { icon: '⚙',  accent: 'var(--orange)' },
+  'Tools & DevOps': { icon: '🛠',  accent: 'var(--orange)' },
 }
 
 const SkillsSection = (_props: SkillsProps) => {
@@ -83,7 +83,7 @@ const SkillsSection = (_props: SkillsProps) => {
         className="md:grid-cols-3"
       >
         {skills.map((cat) => {
-          const meta = CATEGORIES[cat.category] ?? { icon: '●', accent: 'var(--cyan)' }
+          const meta = CATEGORIES[cat.category] ?? { icon: '●', accent: 'var(--orange)' }
 
           return (
             <div

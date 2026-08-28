@@ -16,10 +16,10 @@ const Tag = ({ label, onClick, active = false }: TagProps) => {
       style={
         active
           ? {
-              background: 'linear-gradient(135deg, var(--cyan), var(--emerald))',
+              background: 'var(--orange)',
               color: '#fff',
               border: 'none',
-              boxShadow: '0 2px 12px rgba(34,211,238,0.3)',
+              boxShadow: '0 2px 12px rgba(249,115,22,0.3)',
             }
           : {
               background: 'var(--surface-2)',
@@ -30,7 +30,7 @@ const Tag = ({ label, onClick, active = false }: TagProps) => {
       className={`
         inline-flex items-center rounded-full px-3.5 py-1.5 text-xs font-mono font-medium
         transition-all duration-150 select-none whitespace-nowrap
-        ${isInteractive ? 'cursor-pointer hover:border-(--cyan) hover:text-(--cyan)' : ''}
+        ${isInteractive ? 'cursor-pointer hover:border-(--orange) hover:text-(--orange)' : ''}
       `}
     >
       {label}

@@ -8,8 +8,9 @@ interface NavLink { label: string; href: string }
 const navLinks: NavLink[] = [
   { label: 'About',      href: '#about'      },
   { label: 'Skills',     href: '#skills'     },
-  { label: 'Projects',   href: '#projects'   },
-  { label: 'Experience', href: '#experience' },
+  { label: 'Projects',      href: '#projects'      },
+  { label: 'Testimonials',  href: '#testimonials'  },
+  { label: 'Experience',    href: '#experience'    },
   { label: 'Contact',    href: '#contact'    },
 ]
 
@@ -94,13 +95,13 @@ const Navbar = () => {
                 justifyContent: 'center',
                 width: 30, height: 30,
                 borderRadius: 8,
-                background: 'linear-gradient(135deg, var(--cyan), var(--emerald))',
+                background: 'var(--orange)',
                 fontSize: '0.65rem',
                 fontWeight: 900,
                 fontFamily: 'var(--font-mono)',
                 color: '#fff',
                 letterSpacing: '-0.02em',
-                boxShadow: '0 2px 12px rgba(255,140,66,0.35)',
+                boxShadow: '0 2px 12px rgba(249,115,22,0.35)',
                 flexShrink: 0,
               }}
               aria-hidden="true"
@@ -156,9 +157,9 @@ const Navbar = () => {
                           position: 'absolute',
                           inset: 0,
                           borderRadius: 'var(--r-full)',
-                          background: 'linear-gradient(135deg, var(--cyan), var(--emerald))',
+                          background: 'var(--orange)',
                           zIndex: -1,
-                          boxShadow: '0 2px 12px rgba(255,140,66,0.3)',
+                          boxShadow: '0 2px 12px rgba(249,115,22,0.3)',
                         }}
                         transition={{ type: 'spring', stiffness: 380, damping: 32 }}
                       />
@@ -188,9 +189,9 @@ const Navbar = () => {
                 borderRadius: 'var(--r-full)',
                 border: 'none',
                 cursor: 'pointer',
-                background: 'linear-gradient(135deg, var(--cyan), var(--emerald))',
+                background: 'var(--orange)',
                 color: '#fff',
-                boxShadow: '0 2px 16px rgba(255,140,66,0.3)',
+                boxShadow: '0 2px 16px rgba(249,115,22,0.3)',
                 whiteSpace: 'nowrap',
               }}
               whileHover={{ scale: 1.05, filter: 'brightness(1.1)' }}
@@ -281,10 +282,10 @@ const Navbar = () => {
                         fontWeight: 500,
                         fontFamily: 'var(--font-sans)',
                         borderRadius: 'var(--r-lg)',
-                        border: isActive ? '1px solid rgba(34,211,238,0.25)' : '1px solid transparent',
+                        border: isActive ? '1px solid rgba(249,115,22,0.25)' : '1px solid transparent',
                         cursor: 'pointer',
-                        background: isActive ? 'rgba(34,211,238,0.08)' : 'transparent',
-                        color: isActive ? 'var(--cyan)' : 'var(--muted)',
+                        background: isActive ? 'rgba(249,115,22,0.08)' : 'transparent',
+                        color: isActive ? 'var(--orange)' : 'var(--muted)',
                         transition: 'all 0.15s ease',
                       }}
                     >
@@ -304,9 +305,9 @@ const Navbar = () => {
                       borderRadius: 'var(--r-lg)',
                       border: 'none',
                       cursor: 'pointer',
-                      background: 'linear-gradient(135deg, var(--cyan), var(--emerald))',
+                      background: 'var(--orange)',
                       color: '#fff',
-                      boxShadow: '0 2px 12px rgba(34,211,238,0.25)',
+                      boxShadow: '0 2px 12px rgba(249,115,22,0.25)',
                     }}
                   >
                     Hire me

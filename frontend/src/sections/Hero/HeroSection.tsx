@@ -95,13 +95,13 @@ const HeroSection = (_props: HeroProps) => {
                 gap: 10,
                 padding: '8px 16px',
                 borderRadius: 'var(--r-full)',
-                border: '1px solid rgba(52,211,153,0.25)',
-                background: 'rgba(52,211,153,0.06)',
+                border: '1px solid rgba(249,115,22,0.25)',
+                background: 'rgba(249,115,22,0.06)',
                 marginBottom: '2rem',
               }}
             >
               <span className="live-dot" aria-hidden="true" />
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', fontWeight: 600, color: 'var(--emerald)', letterSpacing: '0.08em' }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', fontWeight: 600, color: 'var(--orange)', letterSpacing: '0.08em' }}>
                 Available for work · Kenya
               </span>
             </motion.div>
@@ -112,7 +112,7 @@ const HeroSection = (_props: HeroProps) => {
               style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', fontWeight: 900, lineHeight: 1.05, letterSpacing: '-0.04em', marginBottom: '1rem', fontFamily: 'var(--font-display)' }}
             >
               <span style={{ display: 'block', color: 'var(--text-strong)' }}>Hi, I'm</span>
-              <span style={{ display: 'block', background: 'linear-gradient(135deg, var(--orange) 0%, var(--emerald) 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>{siteMetadata.name}</span>
+              <span style={{ display: 'block', color: 'var(--orange)' }}>{siteMetadata.name}</span>
             </motion.h1>
 
             {/* Typewriter */}
@@ -121,7 +121,7 @@ const HeroSection = (_props: HeroProps) => {
               style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: '1.5rem' }}
               aria-label={`Role: ${ROLES[roleIndex]}`}
             >
-              <span style={{ width: 32, height: 2, borderRadius: 2, background: 'linear-gradient(90deg,var(--orange),var(--emerald))', flexShrink: 0 }} aria-hidden="true" />
+              <span style={{ width: 32, height: 2, borderRadius: 2, background: 'var(--orange)', flexShrink: 0 }} aria-hidden="true" />
               <p style={{ fontSize: 'clamp(1.1rem,2.5vw,1.5rem)', fontWeight: 600, color: 'var(--muted)', letterSpacing: '-0.01em' }}>
                 <span aria-hidden="true">{displayed}</span>
                 <span className="cursor" aria-hidden="true" />
@@ -134,9 +134,9 @@ const HeroSection = (_props: HeroProps) => {
               style={{ fontSize: 'clamp(0.9rem,2vw,1.0625rem)', lineHeight: 1.75, color: 'var(--muted)', maxWidth: 480, marginBottom: '2.5rem' }}
             >
               I build fast, accessible, production-ready web apps with{' '}
-              <span style={{ color: 'var(--cyan)', fontWeight: 600 }}>React</span>,{' '}
-              <span style={{ color: 'var(--emerald)', fontWeight: 600 }}>Node.js</span>, and{' '}
-              <span style={{ color: 'var(--violet)', fontWeight: 600 }}>TypeScript</span> —
+              <span style={{ color: 'var(--orange)', fontWeight: 600 }}>React</span>,{' '}
+              <span style={{ color: 'var(--orange)', fontWeight: 600 }}>Node.js</span>, and{' '}
+              <span style={{ color: 'var(--text-strong)', fontWeight: 600 }}>TypeScript</span> —
               turning ideas into digital products that users love.
             </motion.p>
 
@@ -147,6 +147,50 @@ const HeroSection = (_props: HeroProps) => {
             >
               <Button label="View My Work" onClick={toProjects} variant="primary" size="lg" />
               <Button label="GitHub"       href={siteMetadata.github} variant="outline" size="lg" external />
+              <motion.button
+                onClick={async () => {
+                  try {
+                    const res = await fetch('/Ian_Ngure_CV.pdf')
+                    if (!res.ok) throw new Error('fetch failed')
+                    const blob = await res.blob()
+                    const url = URL.createObjectURL(blob)
+                    const a = document.createElement('a')
+                    a.href = url
+                    a.download = 'Ian_Ngure_CV.pdf'
+                    document.body.appendChild(a)
+                    a.click()
+                    a.remove()
+                    URL.revokeObjectURL(url)
+                  } catch {
+                    // Fallback: open in new tab
+                    window.open('/Ian_Ngure_CV.pdf', '_blank')
+                  }
+                }}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 7,
+                  padding: '0.75rem 1.75rem',
+                  fontSize: '0.875rem',
+                  fontWeight: 600,
+                  fontFamily: 'var(--font-sans)',
+                  borderRadius: 'var(--r-full)',
+                  border: '1px solid rgba(249,115,22,0.3)',
+                  background: 'rgba(249,115,22,0.07)',
+                  color: 'var(--orange)',
+                  cursor: 'pointer',
+                  whiteSpace: 'nowrap',
+                  transition: 'box-shadow 0.2s, filter 0.2s',
+                }}
+                whileHover={{ scale: 1.04, filter: 'brightness(1.1)' }}
+                whileTap={{ scale: 0.97 }}
+                aria-label="Download CV"
+              >
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                </svg>
+                Download CV
+              </motion.button>
             </motion.div>
 
             {/* Social links */}
@@ -160,7 +204,7 @@ const HeroSection = (_props: HeroProps) => {
                 rel="noopener noreferrer"
                 aria-label="LinkedIn profile"
                 style={{ fontSize: '0.8125rem', color: 'var(--muted)', display: 'flex', alignItems: 'center', gap: 6, textDecoration: 'none', transition: 'color 0.2s' }}
-                onMouseEnter={e => (e.currentTarget.style.color = 'var(--cyan)')}
+                onMouseEnter={e => (e.currentTarget.style.color = 'var(--orange)')}
                 onMouseLeave={e => (e.currentTarget.style.color = 'var(--muted)')}
               >
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -173,7 +217,7 @@ const HeroSection = (_props: HeroProps) => {
               <a
                 href={`mailto:${siteMetadata.email}`}
                 style={{ fontSize: '0.8125rem', color: 'var(--muted)', textDecoration: 'none', transition: 'color 0.2s' }}
-                onMouseEnter={e => (e.currentTarget.style.color = 'var(--cyan)')}
+                onMouseEnter={e => (e.currentTarget.style.color = 'var(--orange)')}
                 onMouseLeave={e => (e.currentTarget.style.color = 'var(--muted)')}
               >
                 {siteMetadata.email}
@@ -213,15 +257,15 @@ const HeroSection = (_props: HeroProps) => {
               </div>
               {/* Code body */}
               <div style={{ padding: '20px 18px', fontFamily: 'var(--font-mono)', fontSize: '0.72rem', lineHeight: 1.9 }}>
-                <p><span style={{ color: 'var(--violet)' }}>const</span>{' '}<span style={{ color: 'var(--cyan)' }}>dev</span>{' '}<span style={{ color: 'var(--muted)' }}>=</span>{' '}<span style={{ color: 'var(--muted)' }}>{'{'}</span></p>
-                <p style={{ paddingLeft: 16 }}><span style={{ color: 'var(--emerald)' }}>name</span><span style={{ color: 'var(--muted)' }}>:</span>{' '}<span style={{ color: 'var(--amber)' }}>'Ian Ngure'</span><span style={{ color: 'var(--muted)' }}>,</span></p>
-                <p style={{ paddingLeft: 16 }}><span style={{ color: 'var(--emerald)' }}>stack</span><span style={{ color: 'var(--muted)' }}>: [</span></p>
+                <p><span style={{ color: 'var(--muted)' }}>const</span>{' '}<span style={{ color: 'var(--text-strong)' }}>dev</span>{' '}<span style={{ color: 'var(--muted)' }}>=</span>{' '}<span style={{ color: 'var(--muted)' }}>{'{'}</span></p>
+                <p style={{ paddingLeft: 16 }}><span style={{ color: 'var(--orange)' }}>name</span><span style={{ color: 'var(--muted)' }}>:</span>{' '}<span style={{ color: 'var(--text)' }}>'Ian Ngure'</span><span style={{ color: 'var(--muted)' }}>,</span></p>
+                <p style={{ paddingLeft: 16 }}><span style={{ color: 'var(--orange)' }}>stack</span><span style={{ color: 'var(--muted)' }}>: [</span></p>
                 {['React','TypeScript','Node.js','PostgreSQL'].map((s) => (
-                  <p key={s} style={{ paddingLeft: 32 }}><span style={{ color: 'var(--amber)' }}>'{s}'</span><span style={{ color: 'var(--muted)' }}>,</span></p>
+                  <p key={s} style={{ paddingLeft: 32 }}><span style={{ color: 'var(--text)' }}>'{s}'</span><span style={{ color: 'var(--muted)' }}>,</span></p>
                 ))}
                 <p style={{ paddingLeft: 16 }}><span style={{ color: 'var(--muted)' }}>],</span></p>
-                <p style={{ paddingLeft: 16 }}><span style={{ color: 'var(--emerald)' }}>available</span><span style={{ color: 'var(--muted)' }}>:</span>{' '}<span style={{ color: 'var(--cyan)' }}>true</span><span style={{ color: 'var(--muted)' }}>,</span></p>
-                <p style={{ paddingLeft: 16 }}><span style={{ color: 'var(--emerald)' }}>remote</span><span style={{ color: 'var(--muted)' }}>:</span>{' '}<span style={{ color: 'var(--cyan)' }}>true</span><span style={{ color: 'var(--muted)' }}>,</span></p>
+                <p style={{ paddingLeft: 16 }}><span style={{ color: 'var(--orange)' }}>available</span><span style={{ color: 'var(--muted)' }}>:</span>{' '}<span style={{ color: 'var(--text-strong)' }}>true</span><span style={{ color: 'var(--muted)' }}>,</span></p>
+                <p style={{ paddingLeft: 16 }}><span style={{ color: 'var(--orange)' }}>remote</span><span style={{ color: 'var(--muted)' }}>:</span>{' '}<span style={{ color: 'var(--text-strong)' }}>true</span><span style={{ color: 'var(--muted)' }}>,</span></p>
                 <p><span style={{ color: 'var(--muted)' }}>{'}'}</span></p>
                 <p style={{ marginTop: 8, color: 'var(--muted-2)' }}>{'// let\'s build something great'}</p>
               </div>
@@ -253,7 +297,7 @@ const HeroSection = (_props: HeroProps) => {
         >
           <div style={{
             width: 2, height: 8, borderRadius: 2,
-            background: 'linear-gradient(to bottom, var(--cyan), transparent)',
+            background: 'linear-gradient(to bottom, var(--orange), transparent)',
           }} />
         </motion.div>
       </motion.div>

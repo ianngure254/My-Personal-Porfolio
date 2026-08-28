@@ -60,9 +60,9 @@ const Button = ({
   const variantStyle: React.CSSProperties =
     variant === 'primary'
       ? {
-          background: 'linear-gradient(135deg, var(--cyan) 0%, var(--emerald) 100%)',
+          background: 'var(--orange)',
           color: '#fff',
-          boxShadow: '0 2px 16px rgba(34,211,238,0.3), 0 1px 4px rgba(0,0,0,0.3)',
+          boxShadow: '0 2px 16px rgba(249,115,22,0.3), 0 1px 4px rgba(0,0,0,0.3)',
         }
       : variant === 'outline'
       ? {

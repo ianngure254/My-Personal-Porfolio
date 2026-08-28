@@ -7,6 +7,7 @@ import HeroSection from '@/sections/Hero/HeroSection'
 import AboutSection from '@/sections/About/AboutSection'
 import SkillsSection from '@/sections/Skills/SkillsSection'
 import ProjectsSection from '@/sections/Projects/ProjectsSection'
+import TestimonialsSection from '@/sections/Testimonials/TestimonialsSection'
 import ExperienceSection from '@/sections/Experience/ExperienceSection'
 import ContactSection from '@/sections/Contact/ContactSection'
 
@@ -39,6 +40,7 @@ const Home = () => {
         <AboutSection />
         <SkillsSection />
         <ProjectsSection />
+        <TestimonialsSection />
         <ExperienceSection />
         <ContactSection />
       </motion.div>

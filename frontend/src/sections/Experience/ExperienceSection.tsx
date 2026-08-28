@@ -70,7 +70,7 @@ const ExperienceSection = (_props: ExperienceProps) => {
                     </h3>
                     <p style={{
                       fontSize: '0.875rem',
-                      color: item.current ? 'var(--cyan)' : 'var(--muted)',
+                      color: item.current ? 'var(--orange)' : 'var(--muted)',
                       fontWeight: 500,
                     }}>
                       {item.company}
@@ -85,7 +85,7 @@ const ExperienceSection = (_props: ExperienceProps) => {
                             width: 6,
                             height: 6,
                             borderRadius: '50%',
-                            background: 'var(--emerald)',
+                            background: 'var(--orange)',
                             display: 'inline-block',
                             flexShrink: 0,
                           }}

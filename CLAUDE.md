@@ -25,9 +25,9 @@
 | Backend    | Node.js, Express.js (TypeScript)        |
 | Database   | PostgreSQL via Neon Serverless          |
 | Email      | Resend (contact form)                   |
-| Deployment | Vercel (frontend), Railway (backend)    |
+| Deployment | Render    |
 
----
+
 
 ## Folder Structure Rules
 

@@ -7,9 +7,10 @@ import { siteMetadata } from '@/data/meta'
 const NAV = [
   { label: 'Home',       href: '#hero'       },
   { label: 'About',      href: '#about'      },
-  { label: 'Projects',   href: '#projects'   },
-  { label: 'Skills',     href: '#skills'     },
-  { label: 'Contact',    href: '#contact'    },
+  { label: 'Projects',     href: '#projects'     },
+  { label: 'Testimonials', href: '#testimonials' },
+  { label: 'Skills',       href: '#skills'       },
+  { label: 'Contact',      href: '#contact'      },
 ]
 
 interface FooterProps {}
@@ -52,10 +53,10 @@ const Footer = (_props: FooterProps) => {
               <span
                 style={{
                   width: 32, height: 32, borderRadius: 8,
-                  background: 'linear-gradient(135deg, var(--orange), var(--emerald))',
+                  background: 'var(--orange)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   fontSize: '0.65rem', fontWeight: 900, fontFamily: 'var(--font-mono)',
-                  color: '#fff', boxShadow: '0 2px 12px rgba(255,140,66,0.35)',
+                  color: '#fff', boxShadow: '0 2px 12px rgba(249,115,22,0.35)',
                   flexShrink: 0,
                 }}
                 aria-hidden="true"
